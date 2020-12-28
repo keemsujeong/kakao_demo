@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카카오</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library. IE10이상에서 동작 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS. Bootstrap4에서 필요 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap');
+
+        nav {
+            border-top: 1px solid #eeeeee;
+            border-bottom: 1px solid #eeeeee;
+            position: fixed !important;
+            ;
+            width: 100% !important;
+            ;
+            top: 0 !important;
+            ;
+        }
+        .navbar-brand {
+            padding: 15px;
+        }
+        .navbar {
+            z-index: 100 !important;
+        }
+        .bg-dark {
+            background-color: white !important;
+            color: #272727 !important;
+        }
+
+        .nav-link {
+            color: #272727 !important;
+        }
+
+        #title {
+            position: relative;
+        }
+        #title h2 {
+            font-family: 'Noto Sans KR', sans-serif;
+            position: absolute;
+            top: 200px;
+            left: 100px;
+            color: white;
+            font-size: 50px;
+        }
+        #video1 {
+            display: block;
+        }
+        #video2 {
+            display: none;
+        }
+        .container-fluid {
+            padding-top: 200px;
+            padding-bottom: 150px;
+            width: 80%;
+            box-sizing: border-box;
+        }
+
+        #video3 {
+            display: block;
+        }
+
+        #video4 {
+            display: none !important;
+        }
+
+        #video3,
+        #video4 {
+            display: block;
+            width: 90% !important;
+            margin: auto !important;
+            margin-top: 30px !important;
+        }
+
+        #about,
+        #history {
+            height:750px;
+            background-color: #F3F2F3;
+            border-radius: 10px;
+            position: relative;
+            margin-top: 150px;
+        }
+
+        #historyImg {
+            display: block;
+        }
+
+        #historyImg2 {
+            display: none;
+        }
+
+        #historyImg {
+            width: 850px;
+            position: absolute;
+            /*자식은 absolute*/
+            right: 0;
+            bottom: 0;
+        }
+
+        #about h2,
+        #history h2 {
+            font-family: 'Noto Sans KR', sans-serif;
+            width: 500px !important;
+            margin: 50px !important;
+            padding-top: 50px !important;
+            position: absolute;
+            top: 0px;
+        }
+
+        #history h2::after {
+            content: "아무도 가보지 않은 길을 걷는\A 카카오의 이야기를 기록합니다.";
+            white-space: pre-wrap;
+        }
+        #about h2::after{
+            font-size: 30px;
+        }
+
+        .arrow {
+            width: 36px;
+            height: 36px;
+            margin-left: 50px !important;
+        }
+
+        #press {
+            margin-top: 0;
+            padding-top: 70px;
+            padding-bottom: 0;
+        }
+
+        #press .col-md-4 div {
+            padding-bottom: 30px;
+        }
+
+        #service {
+            padding-top: 70px;
+        }
+
+        .card .title {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #pc_footer {
+            display: block;
+        }
+
+        #mobile_footer {
+            display: none;
+        }
+
+        footer {
+            border-top: 1px solid #dddddd;
+        }
+
+        footer div {
+            width: 80%;
+            margin: auto;
+        }
+
+        footer span:hover {
+            font-weight: bold;
+        }
+
+        footer span:hover::after {
+            content: url("img/arr-up.png");
+        }
+
+        footer span::after {
+            content: url("img/arr-below.png");
+        }
+
+        #mobile_footer {
+            background: #1E1E1E;
+            color: white;
+        }
+
+        #mobile_footer span::after {
+            content: url("img/arr-below_mobile.png");
+        }
+
+        #map h2 {
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
+            padding: 70px;
+        }
+
+
+        @media screen and (max-width:768px) {
+            .navbar-toggler {
+                background: black;
+            }
+
+            #video1 {
+                display: none !important;
+            }
+
+            #video2 {
+                display: block !important;
+            }
+
+            #video3 {
+                display: none !important;
+            }
+
+            #video4 {
+                display: block !important;
+            }
+
+            #historyImg {
+                display: none !important;
+            }
+
+            #historyImg2 {
+                display: block !important;
+                position: absolute;
+                bottom: 0px;
+                right:0px
+            }
+
+            #title h2 {
+                font-size: 30px;
+                position: absolute;
+                top: 130px !important;
+                left: 50px !important;
+            }
+
+            #about h2,
+            #history h2 {
+                position: absolute;
+                top: -70px !important;
+                left: -10px !important;
+                font-size: 25px;
+            }
+
+            #about, #history{
+                margin-top: 20px;
+                margin-left: 20px;
+                height: 600px;
+            }
+
+            #about p{
+                position: absolute;
+                top: 140px !important;
+                left: -10px !important;
+                font-size: 15px;
+            }
+            #history p{
+                position: absolute;
+                top: 160px !important;
+                left: -10px !important;
+                font-size: 15px;
+
+            }
+
+            #history h2::after {
+                content: "아무도 가보지 않은\A 길을 걷는 카카오의\A 이야기를 기록합니다.";
+                white-space: pre-wrap;
+            }
+            #arrow{
+                position: absolute;
+                padding-top: 40px;
+            }
+
+
+            #historyImg2 {
+                width: 100%;
+            }
+
+            #press .col-md-4,
+            #service .col-md-4 {
+                margin-top: 30px;
+                padding-bottom: 50px;
+                border-bottom: 1px solid #eeeeee;
+            }
+            #press, #service ,#kakaomap{
+                padding-top: 10px;
+            }
+     
+            footer {
+                background: #1E1E1E;
+            }
+
+            #pc_footer {
+                display: none !important;
+                margin-top: 20px;
+            }
+
+            #mobile_footer {
+                display: block !important;
+                margin-top: 20px;
+            }
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        // iframe resize
+        function autoResize(i)
+        {
+            (i).height=0;
+            var iframeHeight=
+            (i).contentWindow.document.body.scrollHeight;
+            (i).height=iframeHeight+20;
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('.navbar-nav a').on('click', function () {
+                var width = $(window).width();
+                if (width <= 576) {
+                    //$('.btn-navbar').click(); //bootstrap 2.x
+                    //$('.navbar-toggle').click(); //bootstrap 3.x 
+                    $('.navbar-toggler').click(); //bootstrap 4.x  
+
+                }
+            }
+            );
+
+
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        })
+    </script>
+</head>
+
+<body id="myPage">
+    <!-- navigation ------------------------------------------------->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+        <a class="navbar-brand" href="#myPage">
+            <img src="img/logo_kakao.png" alt="logo" style="width:70% !important;">
+        </a>
+        <!-- 메뉴버튼 -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <!-- bootstrap3에서 data-toggle="collapse" data-target=".navbar-collapse.in 사용가능 -->
+                    <a class="nav-link" href="#about">카카오</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#history">카카오히스토리</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#press">Press</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#service">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#map">오시는 길</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navigation -->
+    <div id="title">
+        <h2>
+            기술과 사람으로<br>
+            카카오입니다.
+        </h2>
+        <video id="video1" width="100%" muted autoplay loop src="img/kakao_corp.mp4">
+        </video>
+        <video id="video2" width="100%" muted autoplay loop src="img/intro_mobile.mp4">
+        </video>
+    </div>
+    <div id="about" class="container-fluid">
+        <h2>
+            카카오스러운 관점으로<br>
+            세상을 바라봅니다.
+        </h2>
+        <p>
+            <img class="arrow" src="img/arr-rt.svg" alt="arrow"> 카카오스러움이란
+        </p>
+        <video id="video3" muted loop autoplay src="img/kakao_corp2.mp4"></video>
+        <video id="video4" muted loop autoplay src="img/li-1z.m.mp4"></video>
+    </div>
+    <div class="container-fluid" id="history">
+        <h2>
+            <!-- 아무도 가보지 않은 길을 걷는<br>
+            카카오의 이야기를 기록합니다. -->
+        </h2>
+        <p>
+            <img class="arrow" src="img/arr-r.svg" alt="arrow"> 카카오 히스토리
+        </p>
+        <img id="historyImg" src="img/li-3.png" alt="history">
+        <img id="historyImg2" src="img/li-3.m.png" alt="history">
+    </div>
+    <div id="press" class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div>PRESS RELEASE</div>
+                <h5 style="font-weight: 800;">카카오엔터프라이즈, 20여개 협력사와 ‘카카오워크 파트너스데이’ 개최</h5>
+                - 카카오워크 출시 한달 만에 기업/단체 계정 5만개 생성- 구글 어플리케이션 연동, 화상회의 모바일 버전 등 추가 기능 탑재 예정[2020-10-15] 카카오엔터프라이즈(백상엽 대표)가
+                20여개
+            </div>
+            <div class="col-md-4">
+                <div>STOCK</div>
+                <span style="font-size: 30px; font-weight: 500;">359,500</span>
+                <img src="img/arr-below.png"> <span style="color: blue;">2,500</span><br>
+                2020-10-16 10:09:22
+            </div>
+            <div class="col-md-4">
+                <div>PRIVACY POLICY</div>
+                <h5>카카오는 데이터의 연결과 보호의 균형을 위해
+                    언제나 최선을 다 하겠습니다.</h5>
+            </div>
+        </div>
+    </div>
+    <div id="service" class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="title">SERVICE</div>
+                    <img class="card-img-top" src="img/img01.jpg" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title"; style="font-weight: 600;">언제 어디서나 무료로 간편하게! 사람과 세상, 그 이상을 연결하는 카카오톡</h5>
+                        <p class="card-text">채팅은 물론 일정 관리, 송금, #검색 등 다양한 기능을 제공하는 카카오톡은 우리의 생활을 보다 편리하게 만들어 주고 있습니다.
+                            카카오톡을 통해 세상의 정보와 즐길거리에 보다 가까이 ...</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="title" style="color:white;">TECH</div>
+                    <img class="card-img-top" src="img/img02.jpg" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title" ; style="font-weight: 600;">새로워진 kakao Tech를 소개합니다.</h5>
+                        <p class="card-text">기술 행사와 오픈소스, 후원, 채용 등 카카오의 기술 관련 종합적인 정보를 제공할 수 있도록 개편했습니다....</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="title">SOCIAL IMPACT</div>
+                    <img class="card-img-top" src="img/img03.png" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title" ; style="font-weight: 600;">세계 행복의 날 기념, 같이가치 ‘안녕하세요’ 캠페인을 소개합니다!</h5>
+                        <p class="card-text">'세계 행복의 날'이라는 기념일을 들어보신 적 있나요? 2012년 국제연합(UN)이 모든 사람들이 행복하게 살 수 있도록 전 세계가
+                            함께 노력하자는 취지로 매년 3월 20일을 '세계 ...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="map"> <h2>오시는 길</h2>
+    </div>
+    <!-- 카카오맵 ----------------------------------------------->
+    <div id="kakaomap" style="width: 100%; height: 500px; "></div>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dcb73999176079a488968f90510e9048"></script>
+
+    <script>
+
+        var mapContainer = document.getElementById('kakaomap'), // 지도를 표시할 div 
+            mapOption = {
+                center: new daum.maps.LatLng(33.450725, 126.570609), // 지도의 중심좌표
+                level: 7 // 지도의 확대 레벨
+            };
+
+        var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+        // 마커가 표시될 위치입니다 
+        var markerPosition = new daum.maps.LatLng(33.450725, 126.570609);
+
+        // 마커를 생성합니다
+        var marker = new daum.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+
+    </script>
+    <!-- 카카오맵.끝.-->
+
+    <!-- 게시판------------------------------------------------>
+    <div class="container" id="board">
+        <h3 class="text-center">BOARD</h3>
+        <iframe id="iframe1" src="http://ssujeong.dothome.co.kr/g5/bbs/board.php?bo_table=board01" width="100%" onload="autoResize(this)" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    </div>
+    <!--게시판-->
+    <footer>
+        <div id="pc_footer" class="container">
+            <span>이용약관</span> <span>위치기반</span> <span>서비스이용약관</span> <span>개인정보처리방침</span> <span>운영정책</span>
+            <span>청소년보호정책</span> <span>권리침해신고안내</span> <span>공지사항</span> <span>사이버윤리실</span><br>
+            Copyright © Kakao Corp. All rights reserved.
+        </div>
+        <div id="mobile_footer" class="container">
+            <div class="row">
+            <div class="col-md-6"><span>이용약관</span></div>
+            <div class="col-md-6"><span>위치기반</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"><span>서비스이용약관</span></div>
+                <div class="col-md-4"> <span>개인정보처리방침</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6"><span>운영정책</span></div>
+                <div class="col-md-6"> <span>청소년보호정책</span></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6"><span>공지사항</span></div>
+                <div class="col-md-6"> <span>사이버윤리실</span></div>
+            </div>
+            Copyright © Kakao Corp. All rights reserved.
+        </div>
+
+    </footer>
+</body>
+
+</html>
